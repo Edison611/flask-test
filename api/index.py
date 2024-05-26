@@ -9,6 +9,10 @@ app = Flask(__name__)
 CORS(app, support_credentials=True)
 @cross_origin(supports_credentials=True)
 
+@app.route('/', methods=['GET'])
+def test():
+    return jsonify({'message': 'Hello World'})
+
 @app.route('/stats', methods=['POST'])
 def stats_function():
     data = request.get_json()
